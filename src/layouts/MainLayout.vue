@@ -68,13 +68,7 @@ const clear = () => {
           </q-item-section>
         </q-item>
         <q-separator />
-        <q-item v-if="!user.crypt" clickable tag="a" to="/sign">
-          <q-item-section avatar><q-icon name="stream" /></q-item-section>
-          <q-item-section>
-            <q-item-label>{{ $t('menu.sign') }}</q-item-label>
-            <q-item-label caption>{{ $t('menu.signDesc') }}</q-item-label>
-          </q-item-section>
-        </q-item>
+
         <q-item v-if="user.crypt" @click="clear" clickable tag="span">
           <q-item-section avatar><q-icon name="delete" /></q-item-section>
           <q-item-section>

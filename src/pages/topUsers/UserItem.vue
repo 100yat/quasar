@@ -1,4 +1,4 @@
-<script setup >
+<script setup>
 import { defineProps } from 'vue'
 
 defineProps({
@@ -28,32 +28,26 @@ const getBadgeClasses = (value) => (
     </q-item-section>
     <q-item-section class="col-grow">
       <q-item-section style="max-width: 200px;">
-        <q-item-label
-          class="text-weight-bold"
-          style="
+        <q-item-label class="text-weight-bold" style="
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
             padding-right: 10px;
-          "
-        >
+          ">
           {{ user.nickName }}
         </q-item-label>
-        <q-item-label
-          caption
-          style="
+        <q-item-label caption style="
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
             padding-right: 10px;
-          "
-        >
-        {{ user.publicKey }}
-      </q-item-label>
+          ">
+          {{ user.publicKey }}
+        </q-item-label>
       </q-item-section>
     </q-item-section>
     <q-item-section side class="col-2 self-center text-right" style="margin-right: -20px;">
-      <q-item-section avatar><q-icon name="arrow_forward_ios" class="q-pr-none"/></q-item-section>
+      <q-item-section avatar><q-icon name="arrow_forward_ios" class="q-pr-none" /></q-item-section>
     </q-item-section>
   </q-item>
 </template>

@@ -1,13 +1,10 @@
 <template>
   <div class="q-pa-md">
-    <q-table
-      :title="$t('menu.transaction')"
-      :rows="records"
-      :columns="columns"
-      row-key="name"
-    />
+    <q-table :title="$t('menu.transaction')" :rows="records" :columns="columns" row-key="name" />
   </div>
 </template>
+
+<style scoped></style>
 
 <script setup>
 defineOptions({

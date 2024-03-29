@@ -8,6 +8,27 @@ const user = userStore()
 const enter = ref(true)
 const balance = ref(0)
 const userLink = ref('yat.li/user/' + user.pk)
+
+window.addEventListener('resize', function () {
+  const screenWidth = window.innerWidth
+  let scaleFactor = 1 + (screenWidth / 500)
+  scaleFactor = screenWidth < 668 ? scaleFactor / 1.2 : scaleFactor * 1.2
+  const circleText = document.querySelector('.circleText')
+  circleText.style.animation = 'rotateAnimation 30s linear infinite'
+
+  const styleSheet = document.styleSheets[0]
+  styleSheet.insertRule(`Ы
+  @keyframes rotateAnimation {
+    from {
+      transform: translate(-50%, -50%) scale(${scaleFactor}) rotate(0deg);
+    }
+    to {
+      transform: translate(-50%, -50%) scale(${scaleFactor}) rotate(360deg);
+    }
+  }
+`, styleSheet.cssRules.length)
+})
+
 </script>
 
 <template>
@@ -62,38 +83,197 @@ const userLink = ref('yat.li/user/' + user.pk)
       <div v-if="user.sk.length > 0" style="width: 75vw">
         <h1 class="h-balance">{{ balance }} ѣ</h1>
         <div class="row flex-center q-gutter-sm" style="width: 100%">
-         <!-- <q-btn push color="primary" size="l" to="/ask" label="Попросить" />
+          <!-- <q-btn push color="primary" size="l" to="/ask" label="Попросить" />
               <q-btn push color="primary" size="l" to="/spend" label="Потратить" /> -->
-              <q-btn push color="primary" size="l" to="/earn" :label="$t('get')" class="q-mb-md q-mb-sm" />
-              <q-btn push color="primary" size="l" to="/send" :label="$t('send')" class="q-mb-md q-mb-sm" />
+          <q-btn push color="primary" size="l" to="/earn" :label="$t('get')" class="q-mb-md q-mb-sm" />
+          <q-btn push color="primary" size="l" to="/send" :label="$t('send')" class="q-mb-md q-mb-sm" />
         </div>
         <div class="row flex-center" style="width: 100%">
-        <figure class="qrcode">
-          <vue-qrcode :value="userLink" :options="{
-            width: 250,
-            color: {
-              dark: '#3e007a',
-              light: '#ffffff',
-            },
-          }">
-          </vue-qrcode>
-          <img class="qrcode__image" src="/icons/icon-qr.png" />
-        </figure>
+          <figure class="qrcode">
+            <vue-qrcode :value="userLink" :options="{
+    width: 250,
+    color: {
+      dark: '#3e007a',
+      light: '#ffffff',
+    },
+  }">
+            </vue-qrcode>
+            <img class="qrcode__image" src="/icons/icon-qr.png" />
+          </figure>
         </div>
         <div class="row flex-center q-gutter-sm" style="width: 100%">
-        <!--  <q-btn round color="primary" icon="refresh" size="l" />
+          <!--  <q-btn round color="primary" icon="refresh" size="l" />
           <q-btn round color="primary" icon="content_copy" size="l" />
           <q-btn round color="primary" icon="chat_bubble" size="l" />
         -->
         </div>
       </div>
-      <div v-else>
-        <img :alt="$t('title')" src="/logo.svg" class="logo" />
+      <img :alt="$t('title')" src="/logo.svg" class="logo1" />
+      <q-item class="logoWrapper" clickable tag="a" to="/sign">
+        <div class="img">
+          <img :alt="$t('title')" src="/logo.svg" class="logo" />
+        </div>
+
+        <q-item class="circleText">
+          <svg width="250" height="250">
+            <g transform="">
+              <path id="textPath" d="M50,104m-23,23a23,23 0 1,1 196,0a23,23 0 1,1 -196,0" />
+              <text>
+                <textPath href="#textPath" startOffset="-4">
+                  <tspan dy=".0em">Нажми!</tspan>
+                </textPath>
+                <textPath href="#textPath" startOffset="75">
+                  <tspan dy=".0em">Нажми!</tspan>
+                </textPath>
+                <textPath href="#textPath" startOffset="150">
+                  <tspan dy=".0em">Нажми!</tspan>
+                </textPath>
+                <textPath href="#textPath" startOffset="225">
+                  <tspan dy=".0em">Нажми!</tspan>
+                </textPath>
+                <textPath href="#textPath" startOffset="300">
+                  <tspan dy=".0em">Нажми!</tspan>
+                </textPath>
+                <textPath href="#textPath" startOffset="375">
+                  <tspan dy=".0em">Нажми!</tspan>
+                </textPath>
+                <textPath href="#textPath" startOffset="450">
+                  <tspan dy=".0em">Нажми!</tspan>
+                </textPath>
+                <textPath href="#textPath" startOffset="530">
+                  <tspan dy=".0em">Нажми!</tspan>
+                </textPath>
+              </text>
+            </g>
+          </svg>
+        </q-item>
+
+      </q-item>
+
+      <div class="button">
+        <q-item v-if="!user.crypt" clickable tag="a" to="/sign" class="signButton">
+          <q-item-section avatar><q-icon name="stream" class="iconBlack" /></q-item-section>
+          <q-item-section class="section">
+            <q-item-label class="mainBtnText">{{ $t('menu.sign') }}</q-item-label>
+            <q-item-label class="otherBthText">{{ $t('menu.signDesc') }}</q-item-label>
+          </q-item-section>
+        </q-item>
       </div>
+
     </div>
   </q-page>
 </template>
 <style scoped lang="scss">
+@media (orientation: portrait) {
+  .logo1 {
+    display: none;
+  }
+
+  .img {
+    opacity: 0.75;
+  }
+
+  .logoWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    .circleText {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      opacity: 0.75;
+      transform: translate(-50%, -50%) scale(1.7);
+    }
+
+    #textPath {
+      fill: none;
+    }
+
+    text {
+      line-height: 1;
+      text-transform: uppercase;
+      font-size: 15px;
+      fill: #160952;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {}
+
+    // @keyframes animate {
+    //   from {
+    //     transform: rotate(0deg);
+    //   }
+
+    //   to {
+    //     transform: rotate(360deg);
+    //   }
+    // }
+  }
+}
+
+@media (orientation: landscape) {
+  .logoWrapper {
+    display: none;
+  }
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+
+  .signButton {
+    width: 300px;
+    top: 130px;
+    background: white;
+    opacity: 0.75;
+    border-radius: 15px;
+    transition: background 0.1s ease-in-out;
+
+    .iconBlack {
+      color: #311b92;
+      transition: transform 0.8s ease-in-out;
+    }
+
+    .section {
+      color: #311b92;
+    }
+
+    .mainBtnText {
+      font-size: 20px;
+    }
+
+    .otherBthText {
+      font-size: 15px;
+    }
+
+    .signButton:hover {
+      transition: transform .8s ease-in-out;
+    }
+
+    &:hover {
+      background: darken(#eaeaea, 15%);
+
+      .iconBlack {
+        transform: rotate(360deg);
+      }
+    }
+
+    &:active {
+      background: lighten(#eaeaea, 15%);
+    }
+
+  }
+}
+
+@media (orientation: portrait) {
+  .button {
+    display: none;
+  }
+}
+
 h1 {
   font-family: 'Roboto Slab', serif;
   font-size: 100px;
@@ -122,18 +302,18 @@ h1 {
 
 @import url('https://fonts.googleapis.com/css2?family=Sofia+Sans&display=swap');
 
-.logo {
+.logo1 {
   opacity: 0.75;
 }
 
 @media (orientation: landscape) {
-  .logo {
+  .logo1 {
     height: 50vh;
   }
 }
 
 @media (orientation: portrait) {
-  .logo {
+  .logo1 {
     width: 75vw;
   }
 }

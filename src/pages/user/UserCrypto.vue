@@ -10,7 +10,7 @@ const options = ['Amount of BNB', 'Facebook', 'Twitter', 'Apple', 'Oracle']
   <div class="wrapper">
     <div class="select">
       <q-select v-model="selectValue" borderless style="width: 75%" :options="options" label-color="grey-8" />
-      <q-input v-model="numberValue" mask="######"  bg-color="grey-6" standout>
+      <q-input v-model="numberValue" mask="######" bg-color="grey-6" standout>
         <template v-slot:append>
           <img src="/icons/updown-arrow-icon.png" alt="">
         </template>
