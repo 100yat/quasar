@@ -1,6 +1,6 @@
 <template>
   <section>
-    <UserHistoryTx :records="records" :columns="columns"/>
+    <UserHistoryTx :records="records" :columns="columns" />
   </section>
 </template>
 

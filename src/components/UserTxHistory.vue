@@ -4,8 +4,6 @@
   </div>
 </template>
 
-<style scoped></style>
-
 <script setup>
 defineOptions({
   name: 'UserTxHistory'
