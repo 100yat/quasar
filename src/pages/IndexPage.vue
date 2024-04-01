@@ -131,7 +131,7 @@ window.addEventListener('resize', function () {
       </q-item>
     </div>
   </q-page>
-  <q-page class="flex flex-center">
+  <q-page v-if="user.crypt" class="flex flex-center">
     <div class="collumn text-center">
       <div v-if="user.sk.length > 0" style="width: 75vw">
         <h1 class="h-balance">{{ balance }} ѣ</h1>
@@ -231,7 +231,7 @@ window.addEventListener('resize', function () {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 80px;
+    margin-top: 100px;
 
     .signButton {
       width: 300px;
