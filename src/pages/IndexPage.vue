@@ -17,7 +17,7 @@ window.addEventListener('resize', function () {
   circleText.style.animation = 'rotateAnimation 30s linear infinite'
 
   const styleSheet = document.styleSheets[0]
-  styleSheet.insertRule(`Ы
+  styleSheet.insertRule(`
   @keyframes rotateAnimation {
     from {
       transform: translate(-50%, -50%) scale(${scaleFactor}) rotate(0deg);
@@ -78,6 +78,59 @@ window.addEventListener('resize', function () {
       </div>
     </li>
   </ul>
+  <q-page v-if="!user.crypt" class="mainContent">
+    <img :alt="$t('title')" src="/logo.svg" class="logo1" />
+    <q-item class="logoWrapper" clickable tag="a" to="/sign">
+      <div class="img">
+        <img :alt="$t('title')" src="/logo.svg" class="logo" />
+      </div>
+
+      <q-item class="circleText">
+        <svg width="250" height="250">
+          <g transform="">
+            <path id="textPath" d="M50,104m-23,23a23,23 0 1,1 196,0a23,23 0 1,1 -196,0" />
+            <text>
+              <textPath href="#textPath" startOffset="-4">
+                <tspan dy=".0em">Нажми!</tspan>
+              </textPath>
+              <textPath href="#textPath" startOffset="75">
+                <tspan dy=".0em">Нажми!</tspan>
+              </textPath>
+              <textPath href="#textPath" startOffset="150">
+                <tspan dy=".0em">Нажми!</tspan>
+              </textPath>
+              <textPath href="#textPath" startOffset="225">
+                <tspan dy=".0em">Нажми!</tspan>
+              </textPath>
+              <textPath href="#textPath" startOffset="300">
+                <tspan dy=".0em">Нажми!</tspan>
+              </textPath>
+              <textPath href="#textPath" startOffset="375">
+                <tspan dy=".0em">Нажми!</tspan>
+              </textPath>
+              <textPath href="#textPath" startOffset="450">
+                <tspan dy=".0em">Нажми!</tspan>
+              </textPath>
+              <textPath href="#textPath" startOffset="530">
+                <tspan dy=".0em">Нажми!</tspan>
+              </textPath>
+            </text>
+          </g>
+        </svg>
+      </q-item>
+
+    </q-item>
+
+    <div class="button">
+      <q-item v-if="!user.crypt" clickable tag="a" to="/sign" class="signButton">
+        <q-item-section avatar><q-icon name="stream" class="iconBlack" /></q-item-section>
+        <q-item-section class="section">
+          <q-item-label class="mainBtnText">{{ $t('menu.sign') }}</q-item-label>
+          <q-item-label class="otherBthText">{{ $t('menu.signDesc') }}</q-item-label>
+        </q-item-section>
+      </q-item>
+    </div>
+  </q-page>
   <q-page class="flex flex-center">
     <div class="collumn text-center">
       <div v-if="user.sk.length > 0" style="width: 75vw">
@@ -108,169 +161,125 @@ window.addEventListener('resize', function () {
         -->
         </div>
       </div>
-      <img :alt="$t('title')" src="/logo.svg" class="logo1" />
-      <q-item class="logoWrapper" clickable tag="a" to="/sign">
-        <div class="img">
-          <img :alt="$t('title')" src="/logo.svg" class="logo" />
-        </div>
-
-        <q-item class="circleText">
-          <svg width="250" height="250">
-            <g transform="">
-              <path id="textPath" d="M50,104m-23,23a23,23 0 1,1 196,0a23,23 0 1,1 -196,0" />
-              <text>
-                <textPath href="#textPath" startOffset="-4">
-                  <tspan dy=".0em">Нажми!</tspan>
-                </textPath>
-                <textPath href="#textPath" startOffset="75">
-                  <tspan dy=".0em">Нажми!</tspan>
-                </textPath>
-                <textPath href="#textPath" startOffset="150">
-                  <tspan dy=".0em">Нажми!</tspan>
-                </textPath>
-                <textPath href="#textPath" startOffset="225">
-                  <tspan dy=".0em">Нажми!</tspan>
-                </textPath>
-                <textPath href="#textPath" startOffset="300">
-                  <tspan dy=".0em">Нажми!</tspan>
-                </textPath>
-                <textPath href="#textPath" startOffset="375">
-                  <tspan dy=".0em">Нажми!</tspan>
-                </textPath>
-                <textPath href="#textPath" startOffset="450">
-                  <tspan dy=".0em">Нажми!</tspan>
-                </textPath>
-                <textPath href="#textPath" startOffset="530">
-                  <tspan dy=".0em">Нажми!</tspan>
-                </textPath>
-              </text>
-            </g>
-          </svg>
-        </q-item>
-
-      </q-item>
-
-      <div class="button">
-        <q-item v-if="!user.crypt" clickable tag="a" to="/sign" class="signButton">
-          <q-item-section avatar><q-icon name="stream" class="iconBlack" /></q-item-section>
-          <q-item-section class="section">
-            <q-item-label class="mainBtnText">{{ $t('menu.sign') }}</q-item-label>
-            <q-item-label class="otherBthText">{{ $t('menu.signDesc') }}</q-item-label>
-          </q-item-section>
-        </q-item>
-      </div>
-
     </div>
   </q-page>
 </template>
 <style scoped lang="scss">
-@media (orientation: portrait) {
-  .logo1 {
-    display: none;
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @media (orientation: portrait) {
+    .logo1 {
+      display: none;
+    }
+
+    .img {
+      opacity: 0.75;
+    }
+
+    .logoWrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+
+      .circleText {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        opacity: 0.75;
+        transform: translate(-50%, -50%) scale(1.7);
+      }
+
+      #textPath {
+        fill: none;
+      }
+
+      text {
+        line-height: 1;
+        text-transform: uppercase;
+        font-size: 15px;
+        fill: #160952;
+        font-weight: 500;
+        cursor: pointer;
+      }
+
+      @media (max-width: 768px) {}
+
+      // @keyframes animate {
+      //   from {
+      //     transform: rotate(0deg);
+      //   }
+
+      //   to {
+      //     transform: rotate(360deg);
+      //   }
+      // }
+    }
   }
 
-  .img {
-    opacity: 0.75;
+  @media (orientation: landscape) {
+    .logoWrapper {
+      display: none;
+    }
   }
 
-  .logoWrapper {
+  .button {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
+    margin-top: 80px;
 
-    .circleText {
-      position: absolute;
-      top: 50%;
-      left: 50%;
+    .signButton {
+      width: 300px;
+      background: white;
       opacity: 0.75;
-      transform: translate(-50%, -50%) scale(1.7);
-    }
-
-    #textPath {
-      fill: none;
-    }
-
-    text {
-      line-height: 1;
-      text-transform: uppercase;
-      font-size: 15px;
-      fill: #160952;
-      font-weight: 500;
-      cursor: pointer;
-    }
-
-    @media (max-width: 768px) {}
-
-    // @keyframes animate {
-    //   from {
-    //     transform: rotate(0deg);
-    //   }
-
-    //   to {
-    //     transform: rotate(360deg);
-    //   }
-    // }
-  }
-}
-
-@media (orientation: landscape) {
-  .logoWrapper {
-    display: none;
-  }
-}
-
-.button {
-  display: flex;
-  justify-content: center;
-
-  .signButton {
-    width: 300px;
-    top: 130px;
-    background: white;
-    opacity: 0.75;
-    border-radius: 15px;
-    transition: background 0.1s ease-in-out;
-
-    .iconBlack {
-      color: #311b92;
-      transition: transform 0.8s ease-in-out;
-    }
-
-    .section {
-      color: #311b92;
-    }
-
-    .mainBtnText {
-      font-size: 20px;
-    }
-
-    .otherBthText {
-      font-size: 15px;
-    }
-
-    .signButton:hover {
-      transition: transform .8s ease-in-out;
-    }
-
-    &:hover {
-      background: darken(#eaeaea, 15%);
+      border-radius: 15px;
+      transition: background 0.1s ease-in-out;
 
       .iconBlack {
-        transform: rotate(360deg);
+        color: #311b92;
+        transition: transform 0.8s ease-in-out;
       }
-    }
 
-    &:active {
-      background: lighten(#eaeaea, 15%);
-    }
+      .section {
+        color: #311b92;
+      }
 
+      .mainBtnText {
+        font-size: 20px;
+      }
+
+      .otherBthText {
+        font-size: 15px;
+      }
+
+      .signButton:hover {
+        transition: transform .8s ease-in-out;
+      }
+
+      &:hover {
+        background: darken(#eaeaea, 15%);
+
+        .iconBlack {
+          transform: rotate(360deg);
+        }
+      }
+
+      &:active {
+        background: lighten(#eaeaea, 15%);
+      }
+
+    }
   }
-}
 
-@media (orientation: portrait) {
-  .button {
-    display: none;
+  @media (orientation: portrait) {
+    .button {
+      display: none;
+    }
   }
 }
 
