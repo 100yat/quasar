@@ -19,14 +19,14 @@ const user = computed(() => {
     >
       <q-card class="q-pa-md">
         <q-card-section>
-          <div class="user-data shadow-21">
+          <div class="user-data">
             <q-avatar
-              size="80px"
-              class="shadow-10"
+              rounded
+              size="120px"
             >
-              <img :src="user.cover">
+                  <img src="/avatars/default-avatar.png" alt="">
             </q-avatar>
-            <div class="left">
+            <div class="info-block left q-ml-md">
               <p class="user-field">{{ user.name }}
                 <q-icon
                   name="edit"
@@ -53,18 +53,21 @@ const user = computed(() => {
         </q-card-section>
         <q-card-actions class="btn-block">
           <q-btn
+            icon="support"
             color="primary"
             class="btn-user"
             label="Поддержка"
             @click="support"
           />
           <q-btn
+            icon="mail"
             color="primary"
-            class="btn-user shadow-21"
+            class="btn-user"
             @click="send"
             label="Отправить"
           />
           <q-btn
+            icon="settings"
             color="primary"
             class="btn-user"
             label="Настройки"
@@ -93,22 +96,24 @@ const user = computed(() => {
   margin: 0 auto;
   padding: 4px 60px;
   max-height: 100dvh;
+}
 
-  .content {
-    display: flex;
-  }
+.content {
+  display: flex;
+}
 
   .btn-block {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 14px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 14px 0;
+}
 
-    .btn-user {
-      max-width: 112px;
-      width: 100%;
-    }
-  }
+.btn-user {
+  width: 180px;
+  display: flex;
+  align-content: space-between;
 }
 
 .user-data {
@@ -116,7 +121,7 @@ const user = computed(() => {
   gap: 12px;
   background-color: $primary;
   padding: 26px;
-  border-radius: 8px;
+  border-radius: 5px;
 }
 
 .left {
@@ -140,6 +145,7 @@ const user = computed(() => {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  color: #fff;
 }
 
 .hoverable:hover {
