@@ -21,7 +21,8 @@ const routes: RouteRecordRaw[] = [
       { path: 'ask', component: () => import('src/pages/landing/AskPage.vue') },
       { path: 'earn', component: () => import('src/pages/landing/EarnPage.vue') },
       { path: 'spend', component: () => import('src/pages/landing/SpendPage.vue') },
-      { path: 'topUsers', component: () => import('src/pages/topUsers/TopUsersPage.vue') }
+      { path: 'topUsers', component: () => import('src/pages/topUsers/TopUsersPage.vue') },
+      { path: 'send', component: () => import('src/pages/send/SendPage.vue') }
     ]
   },
 

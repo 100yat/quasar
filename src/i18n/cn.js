@@ -17,7 +17,9 @@ export default {
     contacts: '联系方式',
     contactsDesc: '查看联系人',
     topUsers: '与会者排名',
-    topUsersDesc: '在第一批中找到自己！'
+    topUsersDesc: '在第一批中找到自己！',
+    send: '翻譯',
+    sendDesc: '將您的第一個發送至 Yat!'
   },
   sign: {
     t1: '嗨！ 欢迎来到Yat，价值交换系统。 我已经为你想出了一个独特的助记符短语--把它当作你的数字签名，这是识别你自己所必需的。 我没有存储它，因此无法恢复。 现在只有你知道它，所以在纸上仔细写下来，或者至少通过点击它并将其放在某个地方来复制它。',
@@ -57,7 +59,8 @@ export default {
   },
   titles: {
     topUsersTitle: '与会者排名',
-    contacts: '联系方式'
+    contacts: '联系方式',
+    send: '翻譯'
   },
 
   transactionMessage: {
@@ -66,6 +69,11 @@ export default {
   import: '出口/进口',
   dowloadJson: 'Скачать JSON-файл',
   uploadJson: 'JSON-файл',
+  placeholder: {
+    p1: '搜尋',
+    p2: '和',
+    p3: '資訊'
+  },
   aboutPlatform: {
     bannerTexts: {
       banner1: '我们为什么可靠 ...'
@@ -89,7 +97,8 @@ export default {
     scanQr: {
       NotAllowedError: {
         headerErr: '摄像头的使用未经授权！',
-        textErr: '根据隐私和数据保护政策，浏览器设置必须允许访问！请检查这一点。然后刷新页面，在第二次请求中允许访问设备摄像头。'
+        textErr:
+          '根据隐私和数据保护政策，浏览器设置必须允许访问！请检查这一点。然后刷新页面，在第二次请求中允许访问设备摄像头。'
       },
       NotFoundError: '',
       NotSupportedError: '',

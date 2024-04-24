@@ -17,7 +17,9 @@ export default {
     contacts: 'Kontaktlar',
     contactsDesc: "Kontaktlarni ko'rish",
     topUsers: 'Ishtirokchilar reytingi',
-    topUsersDesc: "Birinchilardan bo'ling!"
+    topUsersDesc: "Birinchilardan bo'ling!",
+    send: 'Tarjima',
+    sendDesc: 'Yat-ga birinchi xabaringizni yuboring'
   },
   sign: {
     t1: "Salom! Ятѣ, qiymat almashish tizimiga xush kelibsiz. Men sizga allaqachon noyob mnemonik iborani o'ylab topdim-uni o'zingizni tasdiqlash uchun zarur bo'lgan raqamli imzoingiz deb hisoblang. U menda saqlanmaydi va shuning uchun uni tiklash mumkin emas. Endi siz uni faqat bilasiz, shuning uchun uni qog'ozga ehtiyotkorlik bilan yozing yoki hech bo'lmaganda uni bosib nusxa ko'chiring va biron joyga qo'ying.",
@@ -57,7 +59,8 @@ export default {
   },
   titles: {
     topUsersTitle: 'Ishtirokchilar reytingi',
-    contacts: 'Kontaktlar'
+    contacts: 'Kontaktlar',
+    send: 'Tarjima'
   },
 
   userTxHistory: {
@@ -71,7 +74,11 @@ export default {
   import: 'Eksport/import',
   dowloadJson: 'JSON faylini yuklab oling',
   uploadJson: 'JSON-fayl',
-  placeholder: 'Qidiruv',
+  placeholder: {
+    p1: 'Qidirmoq',
+    p2: 'so`m',
+    p3: 'Xabar'
+  },
   aboutPlatform: {
     bannerTexts: {
       banner1: 'Nima uchun biz bilan ishonchli...'
@@ -95,7 +102,8 @@ export default {
     scanQr: {
       NotAllowedError: {
         headerErr: 'Kameraga kirishga ruxsat berilmagan!',
-        textErr: "Maxfiylik va ma'lumotlarni himoya qilish siyosatiga muvofiq, brauzer sozlamalarida kirishga ruxsat berilishi kerak! Iltimos, tekshiring. Keyin sahifani yangilang va yana so'ralganda qurilma kamerasiga kirishga ruxsat bering."
+        textErr:
+          "Maxfiylik va ma'lumotlarni himoya qilish siyosatiga muvofiq, brauzer sozlamalarida kirishga ruxsat berilishi kerak! Iltimos, tekshiring. Keyin sahifani yangilang va yana so'ralganda qurilma kamerasiga kirishga ruxsat bering."
       },
       NotFoundError: '',
       NotSupportedError: '',
