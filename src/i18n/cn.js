@@ -72,7 +72,8 @@ export default {
   placeholder: {
     p1: '搜尋',
     p2: '和',
-    p3: '資訊'
+    p3: '資訊',
+    p4: '給誰'
   },
   aboutPlatform: {
     bannerTexts: {

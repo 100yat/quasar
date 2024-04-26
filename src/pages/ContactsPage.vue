@@ -70,15 +70,15 @@ const contacts = ref([])
 const url = ref('')
 const isEdit = ref([])
 
-async function update(value) {
+async function update (value) {
   contacts.value = await db.findContact(value)
 }
 
-async function edit(index) {
+async function edit (index) {
   isEdit.value[index] = !isEdit.value[index]
 }
 
-async function save(index) {
+async function save (index) {
   const edited = contacts.value[index]
   await db.changeContact(JSON.parse(JSON.stringify(edited)))
   // await getContacts()
@@ -89,7 +89,7 @@ async function save(index) {
   edit()
 }
 
-async function getUrl() {
+async function getUrl () {
   const exportContacts = await db.getContacts()
   const data = JSON.stringify(exportContacts)
 
@@ -97,7 +97,7 @@ async function getUrl() {
   return URL.createObjectURL(file)
 }
 
-async function plus() {
+async function plus () {
   const name = prompt()
   const addr = prompt()
   if (name && addr) {
@@ -118,7 +118,7 @@ async function plus() {
   }
 }
 
-async function rm(id) {
+async function rm (id) {
   await db.deleteContact(id)
   await getContacts()
   url.value = await getUrl()
@@ -129,13 +129,13 @@ async function rm(id) {
   })
 }
 
-async function getContacts() {
+async function getContacts () {
   contacts.value = await db.getContacts()
   isEdit.value.length = contacts.value.length
   isEdit.value.fill(false)
 }
 
-async function exportContacts() {
+async function exportContacts () {
   const a = document.createElement('a')
   a.href = url.value
   a.download = 'contacts.json'
@@ -148,7 +148,7 @@ async function exportContacts() {
   }, 0)
 }
 
-function handleFileUpload(event) {
+function handleFileUpload (event) {
   const file = event.target.files[0]
   const reader = new FileReader()
 

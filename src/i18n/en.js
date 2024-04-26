@@ -71,7 +71,8 @@ export default {
   placeholder: {
     p1: 'Find',
     p2: 'Sum',
-    p3: 'Message'
+    p3: 'Message',
+    p4: 'To whom'
   },
   aboutPlatform: {
     bannerTexts: {

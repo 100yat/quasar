@@ -77,7 +77,8 @@ export default {
   placeholder: {
     p1: 'Qidirmoq',
     p2: 'so`m',
-    p3: 'Xabar'
+    p3: 'Xabar',
+    p4: 'Kimga'
   },
   aboutPlatform: {
     bannerTexts: {

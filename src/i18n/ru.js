@@ -71,7 +71,8 @@ export default {
   placeholder: {
     p1: 'Поиск',
     p2: 'Сумма',
-    p3: 'Сообщение'
+    p3: 'Сообщение',
+    p4: 'Кому'
   },
   aboutPlatform: {
     bannerTexts: {
