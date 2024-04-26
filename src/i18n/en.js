@@ -17,7 +17,9 @@ export default {
     contacts: 'Contacts',
     contactsDesc: 'View contacts',
     topUsers: 'Ranking of participants',
-    topUsersDesc: 'Find yourself among the first ones!'
+    topUsersDesc: 'Find yourself among the first ones!',
+    send: 'Transfer',
+    sendDesc: 'Send your first to Yat!'
   },
   sign: {
     t1: 'Hi! Welcome to Yat, the value exchange system. I have already come up with a unique mnemonic phrase for you - consider it your digital signature, necessary to identify yourself. I do not have it stored and therefore cannot be restored. Now only you know it, so write it down carefully on paper or at least copy it by clicking on it and put it somewhere.',
@@ -59,7 +61,8 @@ export default {
   },
   titles: {
     topUsersTitle: 'Ranking of participants',
-    contacts: 'Contacts'
+    contacts: 'Contacts',
+    send: 'Transfer'
   },
   transactionMessage: {
     successfull: 'Transaction completed'
@@ -67,7 +70,12 @@ export default {
   import: 'Export/Import',
   dowloadJson: 'Download JSON-file',
   uploadJson: 'JSON-file',
-  placeholder: 'Find ',
+  placeholder: {
+    p1: 'Find',
+    p2: 'Sum',
+    p3: 'Message',
+    p4: 'To whom'
+  },
   aboutPlatform: {
     bannerTexts: {
       banner1: "Why we're reliable..."
@@ -91,7 +99,8 @@ export default {
     scanQr: {
       NotAllowedError: {
         headerErr: 'Access to the camera was not authorized!',
-        textErr: 'In accordance with the privacy and data protection policy, access in the browser settings must be allowed! Please check this. Then refresh the page and allow access to the device camera in a second request.'
+        textErr:
+          'In accordance with the privacy and data protection policy, access in the browser settings must be allowed! Please check this. Then refresh the page and allow access to the device camera in a second request.'
       },
       NotFoundError: '',
       NotSupportedError: '',

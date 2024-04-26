@@ -29,7 +29,7 @@
 
     <q-btn class="q-ma-sm" icon="person_add" @click="plus" />
 
-    <q-input filled :label="$t('placeholder')" label-color="white" @update:model-value="update" class="q-mt-md"
+    <q-input filled :label="$t('placeholder.p1')" label-color="white" @update:model-value="update" class="q-mt-md"
       style="width: 45%;" />
 
     <q-card class="q-mb-sm" flat v-for="(contact, i) in contacts" :key="contact.id" style="background-color: #110030">
